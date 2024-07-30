@@ -4,6 +4,8 @@ import {
   UserInfo,
 } from "@workos-inc/authkit-nextjs/dist/cjs/interfaces";
 import { WorkOS } from "@workos-inc/node";
+import "@radix-ui/themes/styles.css";
+import JobForm from "@/app/components/JobForm";
 
 type PageProps = {
   params: {
@@ -30,15 +32,5 @@ export default async function NewListTingForOrgPage(props: PageProps) {
     return "No access";
   }
 
-  return (
-    <form action="" className="container mt-6">
-      <input
-        type="text"
-        className="border p-2"
-        placeholder="Job title"
-        name=""
-        id=""
-      />
-    </form>
-  );
+  return <JobForm />;
 }
