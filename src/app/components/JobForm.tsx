@@ -22,6 +22,7 @@ import {
   LanguageSelect,
 } from "react-country-state-city";
 import "react-country-state-city/dist/react-country-state-city.css";
+import ImageUpload from "./ImageUpload";
 
 export default function JobForm() {
   const [countryid, setCountryid] = useState(0);
@@ -85,23 +86,13 @@ export default function JobForm() {
         <div className="flex gap-6">
           <div className="w-1/3">
             <h3>Job icon</h3>
-            <div className="bg-gray-100 rounded-md size-24 inline-flex items-center content-center justify-center">
-              <FontAwesomeIcon icon={faStar} className="text-gray-400" />
-            </div>
-            <div className="mt-2">
-              <Button variant="soft">Select file</Button>
-            </div>
+            <ImageUpload icon={faUser} />
           </div>
           <div className="grow">
             <h3>Contact person</h3>
             <div className="flex gap-4">
               <div className="flex flex-col ">
-                <div className="bg-gray-100 rounded-md size-24 inline-flex items-center content-center justify-center">
-                  <FontAwesomeIcon icon={faUser} className="text-gray-400" />
-                </div>
-                <div className="mt-2">
-                  <Button variant="soft">Select file</Button>
-                </div>
+                <ImageUpload icon={faStar} />
               </div>
               <div className="flex flex-col gap-2 grow">
                 <TextField.Root placeholder="John Doe">
