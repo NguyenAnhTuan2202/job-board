@@ -32,5 +32,5 @@ export default async function NewListTingForOrgPage(props: PageProps) {
     return "No access";
   }
 
-  return <JobForm />;
+  return <JobForm orgId={orgId} />;
 }
