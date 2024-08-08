@@ -46,7 +46,7 @@ export default async function NewListingPage() {
                 className={`py-2 px-4 flex gap-2 items-center ${
                   index !== 0 ? "border-t" : ""
                 }`}
-                key={organizationId}
+                key={index}
                 href={"/new-listing/" + organizationId}
               >
                 {organizationNames[organizationId]}

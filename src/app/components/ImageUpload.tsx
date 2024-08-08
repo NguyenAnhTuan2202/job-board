@@ -7,7 +7,13 @@ import { ChangeEvent, useRef, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 
-export default function ImageUpload({ icon }: { icon: IconDefinition }) {
+export default function ImageUpload({
+  icon,
+  name,
+}: {
+  icon: IconDefinition;
+  name: string;
+}) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [imageUrl, setImageUrl] = useState<string>("");
   const [isUploading, setIsUploading] = useState<boolean>(false);
@@ -52,13 +58,13 @@ export default function ImageUpload({ icon }: { icon: IconDefinition }) {
           />
         )}
       </div>
+      <input type="hidden" value={imageUrl} name={name} />
       <div className="mt-2">
         <input
           onChange={handleUploadFile}
           ref={inputRef}
           type="file"
           hidden
-          name=""
           id=""
         />
         <Button
