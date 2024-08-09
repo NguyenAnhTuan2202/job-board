@@ -10,12 +10,14 @@ import Image from "next/image";
 export default function ImageUpload({
   icon,
   name,
+  defaultValue,
 }: {
   icon: IconDefinition;
   name: string;
+  defaultValue: string;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [imageUrl, setImageUrl] = useState<string>("");
+  const [imageUrl, setImageUrl] = useState<string>(defaultValue);
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const [isImageUploading, setIsImageUploading] = useState<boolean>(false);
 

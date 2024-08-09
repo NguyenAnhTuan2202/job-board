@@ -4,7 +4,6 @@ import {
   UserInfo,
 } from "@workos-inc/authkit-nextjs/dist/cjs/interfaces";
 import { WorkOS } from "@workos-inc/node";
-import "@radix-ui/themes/styles.css";
 import JobForm from "@/app/components/JobForm";
 
 type PageProps = {

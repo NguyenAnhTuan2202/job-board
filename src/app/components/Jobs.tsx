@@ -1,4 +1,4 @@
-import { Job } from "@/models/Job";
+import type { Job } from "@/models/Job";
 import JobRow from "./JobRow";
 
 export default function Jobs({
@@ -16,12 +16,10 @@ export default function Jobs({
           {(!jobs || jobs.length === 0) && <div>No jobs found</div>}
           {jobs &&
             jobs.length > 0 &&
-            jobs.map((job, index) => {
+            jobs.map((job) => {
               return (
                 <>
-                  <div key={index}>
-                    <JobRow job={job} />
-                  </div>
+                  <JobRow job={job} />
                 </>
               );
             })}

@@ -1,6 +1,7 @@
 import { model, models, Schema } from "mongoose";
 
 export type Job = {
+  _id: string;
   title: string;
   remote: string;
   type: string;
@@ -8,6 +9,9 @@ export type Job = {
   country: string;
   state: string;
   city: string;
+  countryId: string;
+  stateId: string;
+  cityId: string;
   jobIcon: string;
   orgId: string;
   orgName: string;
@@ -17,6 +21,8 @@ export type Job = {
   contactEmail: string;
   createdAt: string;
   updatedAt: string;
+  isAdmin?: boolean;
+  description: string;
 };
 
 const JobSchema = new Schema(
@@ -28,12 +34,16 @@ const JobSchema = new Schema(
     country: { type: String, required: true },
     state: { type: String, required: true },
     city: { type: String, required: true },
+    countryId: { type: String, required: true },
+    stateId: { type: String, required: true },
+    cityId: { type: String, required: true },
     jobIcon: { type: String },
     orgId: { type: String, required: true },
     contactPhoto: { type: String },
     contactName: { type: String, required: true },
     contactPhone: { type: String, required: true },
     contactEmail: { type: String, required: true },
+    description: { type: String, require: true },
   },
   {
     timestamps: true,

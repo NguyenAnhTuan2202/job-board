@@ -9,5 +9,6 @@ export const config = {
     "/new-listing/:path*",
     "/new-company",
     "/jobs/:orgId*",
+    "/jobs/edit:jobId*",
   ],
 };
