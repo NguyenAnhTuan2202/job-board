@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
+import "react-country-state-city/dist/react-country-state-city.css";
+import "@radix-ui/themes/styles.css";
 import Header from "./components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
