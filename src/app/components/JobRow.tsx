@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TimeAgo from "react-timeago";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
 
 export default function JobRow({ job }: { job: Job }) {
   return (
@@ -26,8 +27,22 @@ export default function JobRow({ job }: { job: Job }) {
           </div>
           <div className="grow sm:flex">
             <div className="grow">
-              <div className="text-gray-500 text-sm">{job.orgName}</div>
-              <div className="font-bold text-lg mb-1">{job.title}</div>
+              <div>
+                <Link
+                  href={`/jobs/${job.orgId}`}
+                  className="hover:underline text-gray-500 text-sm"
+                >
+                  {job.orgName}
+                </Link>
+              </div>
+              <div>
+                <Link
+                  href={`/show/${job._id}`}
+                  className="hover:underline font-bold text-lg mb-1"
+                >
+                  {job.title}
+                </Link>
+              </div>
               <div className="text-gray-400 text-sm capitalize">
                 {job.remote} &middot; {job.city}, {job.country} &middot;{" "}
                 {job.type}-time
@@ -37,7 +52,16 @@ export default function JobRow({ job }: { job: Job }) {
                     &middot; <Link href={"/jobs/edit/" + job._id}>
                       Edit
                     </Link>{" "}
-                    &middot; <button>Delete</button>
+                    &middot;{" "}
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        await axios.delete("/api/jobs?id=" + job._id);
+                        window.location.reload();
+                      }}
+                    >
+                      Delete
+                    </button>
                   </>
                 )}
               </div>
